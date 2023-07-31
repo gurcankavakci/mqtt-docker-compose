@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  mosquitto:
+    container_name: "mosquitto"
+    image: eclipse-mosquitto:2
+    network_mode: host
+    user: root
+    ports:
+      - '1883:1883'
+      - '9001:9001'
+    volumes:
+      - ./mosquitto/conf:/mosquitto/conf
+      - ./mosquitto/log:/mosquitto/log
+      - ./mosquitto/data:/mosquitto/data
+    restart: unless-stopped
+  
+  mqtt-explorer:
+    container_name: "mqtt-explorer"
+    image: smeagolworms4/mqtt-explorer
+    network_mode: host
+    user: root
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./mqtt-explorer/config:/mqtt-explorer/config
+    environment:
+      - HTTP_PORT=4000
+      - CONFIG_PATH=/mqtt-explorer/config
+    restart: unless-stopped

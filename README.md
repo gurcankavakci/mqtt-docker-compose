@@ -9,4 +9,6 @@
 `docker-compose exec mosquitto mosquitto_passwd -b /mosquitto/conf/mosquitto.passwd admin 123456`
 
 Default username and password is admin/admin
+
+`Go to localhost:4000 for client`
        

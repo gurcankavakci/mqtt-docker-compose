@@ -8,11 +8,21 @@
 
 `Go to localhost:4000 for client` 
 
+```
 Protocol: mqtt://
 
 Host: mqtt
 
 Port: 1883
+```
+Websocket protocol is enabled.
+```
+Protocol: ws://
+
+Host: mqtt
+
+Port: 8080
+```
 
 ## Authentication
 
